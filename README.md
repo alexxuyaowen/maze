@@ -3,6 +3,8 @@ A program that simulates Texas Hold'em and computes related probabilities.
 
 How to run: Download the file and run `python3 poker.py` on Terminal
 
+<br>
+
 
 # morse.py
 A simple program that translates English to Morse Code and vice versa, capable of language detetion.

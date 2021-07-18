@@ -1,7 +1,15 @@
+# poker.py
+A program that simulates Texas Hold'em and computes related probabilities.
+
+How to run: Download the file and run `python3 poker.py` on Terminal
+
+
 # morse.py
-A simple python program that translates English to Morse Code and vice versa, capable of language detetion.
+A simple program that translates English to Morse Code and vice versa, capable of language detetion.
 
 How to run: Download the file and run `python3 morse.py` on Terminal; enter '#' to exit.
+
+<br>
 
 # Daredevil
 

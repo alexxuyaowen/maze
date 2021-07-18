@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Settings</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/coloring/vendors/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/coloring/css/main.css' %}" />
+
+  <script src="{% static 'coloring/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style type="text/css">
+    /* iPhone SE ~ 320*568 */
+
+    .h-7 {
+      height: 14.29vh;
+    }
+
+    #b1{
+      padding-top:2.5vh;
+      background: #f1f1f1;
+      text-align:center;
+    }
+
+    #b2, #b3, #b4, #b5, #b6 {
+      background: #f1f1f1;
+      font-size:2.75vmax;
+      padding-left:5.5vw;
+      padding-top:1vh;
+    }
+
+    /* https://www.w3schools.com/howto/howto_css_switch.asp */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #00B74A;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #00B74A;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .container-fluid {
+      animation-name: slideleft;
+      animation-duration: 0.4s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class = "row">
+      <a href="{% url 'homepage' %}" style="width:33.3vw;font-size:7vmax;color:black;">
+        <div id = "b1" class="h-7"> ⌫ </div>
+      </a>
+
+      <div id = "b1" class="h-7" style="width:33.3vw;font-size:8vmax"> ⚙️ </div>
+      <div id = "b1" class="h-7" style="width:33.4vw;font-size:7vmax;"> &nbsp </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b2" class="w-50" style="height:10.29vh"> Enable Blind Mode </div>
+      <div class="w-50" style="height:10.29vh;background: #f1f1f1;text-align:right;padding-right:4.5vmax;padding-top:1vmax">
+        <div class="form-check form-switch">
+          <!-- https://www.w3schools.com/howto/howto_css_switch.asp -->
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b3" class="w-50 h-7" style="padding-top:5vmax;"> Default Brush </div>
+      <div id = "b3" class="w-50 h-7" style="padding-right:2vmax;">
+        <div class="input-group mb-2 mt-3 ml-2" style="width:22vmax;font-size:4.25vmax">
+          ⚫️ &nbsp;
+    	  	<input type="text" class="form-control"  placeholder="000000" style="text-align:center;">
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b3" class="w-50" style="height: 19.29vh;padding-top:5vmax;"> Font </div>
+      <div id = "b3" class="w-50" style="height: 19.29vh;padding-left:13vmax;padding-right:4.5vmax;padding-top:1vmax">
+        <div class="input-group mb-2 mt-3 ml-2" style="width:50px;height:20px;font-size:27px">
+    	  	<input type="text" class="form-control"  placeholder="16" style="text-align:center;">
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b4" class="w-50 h-7"> Noise Cancellation </div>
+      <div class="w-50 h-7" style="background: #f1f1f1;text-align:right;padding-right:4.5vmax;padding-top:1vmax">
+        <div class="form-check form-switch">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b5" class="w-50 h-7"> Dictation </div>
+      <div class="w-50 h-7" style="background: #f1f1f1;text-align:right;padding-right:4.5vmax;padding-top:1vmax">
+        <div class="form-check form-switch">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div id = "b6" class="w-50 h-7"> Show Alerts </div>
+      <div class="w-50 h-7" style="background: #f1f1f1;text-align:right;padding-right:4.5vmax;padding-top:1vmax">
+        <div class="form-check form-switch">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

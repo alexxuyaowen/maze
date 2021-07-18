@@ -1,0 +1,388 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<title>P3 Coloring</title>
+		<link rel="stylesheet" type="text/css" href="{% static '/coloring/vendors/bootstrap/css/bootstrap.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static '/coloring/css/main.css' %}" />
+
+		<script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		#color-palette {
+			width: 220px;
+			background-color: #f1f1f1;
+			display: flex;
+			flex-wrap: wrap;
+			/* position: absolute; */
+			top: 0;
+		}
+
+		.swatch {
+			width: 24px;
+			height: 24px;
+			-moz-border-radius: 12px;
+			-webkit-border-radius: 12px;
+			border-radius: 12px;
+			margin: 3px;
+		}
+
+		#myCanvas {
+			padding-left: 0;
+		    padding-right: 0;
+		    margin-left: auto;
+		    margin-right: auto;
+		    display: block;
+		}
+	</style>
+	<style type="text/css">
+		/* The Modal (background) */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+			/* position: relative; */
+			background-color: #fefefe;
+			margin: auto;
+			padding: 0;
+			border: 1px solid #888;
+			width: 80%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+			-webkit-animation-name: animatetop;
+			-webkit-animation-duration: 0.4s;
+			animation-name: animatetop;
+			animation-duration: 0.4s
+		}
+
+		/* Add Animation */
+		@-webkit-keyframes animatetop {
+			from {top:-300px; opacity:0}
+			to {top:0; opacity:1}
+		}
+
+		@keyframes animatetop {
+			from {top:-300px; opacity:0}
+			to {top:0; opacity:1}
+		}
+
+		/* The Close Button */
+		/* .close {
+			color: white;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover, .close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		} */
+
+		.modal-header {
+			padding: 2px 16px;
+			background-color: #5cb85c;
+			color: white;
+			text-align: center;
+		}
+
+		.modal-body {padding: 2px 16px;}
+
+		.modal-footer {
+			padding: 2px 16px;
+			background-color: #5cb85c;
+			color: white;
+		}
+
+		.modal-header-dark {
+			/* padding: 2px 16px; */
+			background-color: #000000;
+			color: white;
+			text-align: center;
+		}
+
+		.modal-footer-dark {
+			/* padding: 2px 16px; */
+			background-color: #000000;
+			color: white;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" canvas="canvas">
+		window.onload = function() {
+			var canvas = document.getElementById('myCanvas');
+
+			// coloring page
+			var pic = {
+				item: null,
+				lastClicked: null,
+				filePath: '/static/coloring/images/mandala-freepik-simple.svg'
+			};
+
+			// color palette
+			var cp = {
+				history: ["#000000"], // black selected by default
+				options: [],
+				$container: $('#color-palette')
+			}
+
+			function myCustomInteraction() {
+				var tool = new paper.Tool();
+
+				tool.onMouseDown = function (event) {
+				    var hit = pic.item.hitTest(event.point, { tolerance: 2, fill: true });
+				    if (hit) {
+				    		// Color pallette keeps track of the full history of colors, though we
+				    		// only color in with the most-recent color.
+				        hit.item.fillColor = cp.history[cp.history.length - 1];
+				    }
+				}
+			}
+
+			// create a color palette with the given colors
+			function createColorPalette(colors){
+
+				// create a swatch for each color
+				for (var i = colors.length - 1; i >= 0; i--) {
+					var $swatch = $("<div>").css("background-color", colors[i])
+									   .addClass("swatch");
+					$swatch.click(function(){
+						// add color to the color palette history
+					  	cp.history.push($(this).css("background-color"));
+					});
+					cp.$container.append($swatch);
+				}
+			}
+
+			$("#color-input").change(function (e) {
+				var inpcolor = document.getElementById("color-input").value;
+				var $swatch = $("<div>").css("background-color", inpcolor)
+									 .addClass("swatch");
+				$swatch.click(function(){
+					// add color to the color palette history
+						cp.history.push($(this).css("background-color"));
+				});
+				cp.$container.append($swatch);
+				cp.history.push(inpcolor);
+			});
+
+			// loads a set of colors from a json to create a color palette
+			function getColorsCreatePalette(){
+				cp.$container.html(" ");
+				$.getJSON('/static/coloring/vendors/material/material-colors.json', function(colors){
+					var keys = Object.keys(colors);
+					for (var i = keys.length - 1; i >= 0; i--) {
+						cp.options.push(colors[keys[i]][500]);
+					}
+					createColorPalette(cp.options);
+				});
+			}
+
+			function init(custom){
+				paper.setup(canvas);
+				getColorsCreatePalette();
+
+				paper.project.importSVG(pic.filePath, function(item) {
+					pic.item = item._children["design-freepik"];
+				    paper.project.insertLayer(0,pic.item);
+						paper.project.layers[0].fitBounds(paper.view.bounds)
+				    if (custom) {
+				    	myCustomInteraction();
+				    } else {
+				    	myGradientInteraction();
+				    }
+
+				});
+			}
+
+			// Set up the pic interactivity.
+			init(true);
+
+			// var badid = /id="ëÎÓÈ_2"/
+			// http://paperjs.org/features/#svg-import-and-export
+			function downloadDataUri(options) {
+				if (!options.url)
+					options.url = "http://download-data-uri.appspot.com/";
+					let simg = $('<form method="post" action="' + options.url
+					+ '" style="display:none"><input type="hidden" name="filename" value="'
+					+ options.filename + '"/><input type="hidden" name="data" value="'
+					+ options.data + '"/></form>').appendTo('body').submit().remove();
+				}
+
+			$('#export-button').click(function() {
+				// alert('This function is in beta. You will have to open the SVG in a text editor, then search for and delete the string: id="ëÎÓÈ_2" .')
+				var svg = paper.project.exportSVG({ asString: true });
+				downloadDataUri({
+					data: 'data:image/svg+xml;base64,' + btoa(svg),
+					filename: 'export.svg'
+				});
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="container" style="width:100%; height:100%; background-color:#e5e5e5;">
+		<div class="brightness-box" style="width:100%; height:100%">
+		<nav class="navbar navbar-light" style="width:100%; height:10%">
+			<a href="{% url 'homepage' %}" class="mt-3"><button type="button" class="btn btn-dark">Back</button></a>
+			<a class="mt-3"><input type="button" id="export-button" class="btn btn-warning" value="SVG"></a>
+			<a id="download" download="image.png" class="mt-3"><button type="button" onClick="download()" class="btn btn-success">PNG</button></a>
+		</nav>
+		<canvas id="myCanvas" style="width:100%; height:80%"></canvas>
+
+		<nav class="navbar" style="width:100%; height:10%">
+
+			<a class=""><button type="button" id="blind-btn" class="btn btn-dark">Blind Mode</button></a>
+
+			<!-- SVGs from Discord.com mic button -->
+			<a class="ml-3">
+				<button id="micoff" onclick="$('#micoff').hide(); $('#micon').show();" type="button" class="btn btn-dark">
+					<svg aria-hidden="false" width="20" height="20" viewBox="0 0 24 24">
+						<path d="M6.7 11H5C5 12.19 5.34 13.3 5.9 14.28L7.13 13.05C6.86 12.43 6.7 11.74 6.7 11Z" fill="currentColor"></path>
+						<path d="M9.01 11.085C9.015 11.1125 9.02 11.14 9.02 11.17L15 5.18V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 11.03 9.005 11.0575 9.01 11.085Z" fill="currentColor"></path>
+						<path d="M11.7237 16.0927L10.9632 16.8531L10.2533 17.5688C10.4978 17.633 10.747 17.6839 11 17.72V22H13V17.72C16.28 17.23 19 14.41 19 11H17.3C17.3 14 14.76 16.1 12 16.1C11.9076 16.1 11.8155 16.0975 11.7237 16.0927Z" fill="currentColor"></path>
+						<path d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z" class="strikethrough-1n4ekb" fill="currentColor"></path>
+					</svg>
+				</button>
+				<button id="micon" onclick="$('#micon').hide(); $('#micoff').show();" type="button" class="btn btn-dark">
+					<svg aria-hidden="false" width="20" height="20" viewBox="0 0 24 24">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V21H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1ZM12 4C11.2 4 11 4.66667 11 5V11C11 11.3333 11.2 12 12 12C12.8 12 13 11.3333 13 11V5C13 4.66667 12.8 4 12 4Z" fill="currentColor"></path>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M14.99 11C14.99 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11V5C9 3.34 10.34 2 12 2C13.66 2 15 3.34 15 5L14.99 11ZM12 16.1C14.76 16.1 17.3 14 17.3 11H19C19 14.42 16.28 17.24 13 17.72V22H11V17.72C7.72 17.23 5 14.41 5 11H6.7C6.7 14 9.24 16.1 12 16.1Z" fill="currentColor"></path>
+					</svg>
+				</button>
+			</a>
+
+			<a class="ml-3"><button id="paletteBtn" class="btn btn-success">🎨</button></a>
+
+		</nav>
+		<!-- The Modal -->
+		<!-- https://www.w3schools.com/howto/howto_css_modals.asp -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<!-- <span class="close" id="paletteClose">&times;</span> -->
+					<span class="text-center" style="text-align:center;"><h2 class="text-center">Color</h2></span>
+
+				</div>
+				<div class="modal-body">
+					<div id="color-palette"></div>
+					<span>
+						<p class="float-left">Custom: </p>
+						&nbsp;
+						<input type="color" id="color-input" class="float-center" style="overflow-y: scroll">
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- The Second Modal -->
+		<div id="myModal2" class="modal">
+		  <div class="modal-content">
+		    <div class="modal-header-dark">
+		      <h2>Blind Mode</h2>
+		    </div>
+		    <div class="modal-body">
+		      <p>You are about to enter blind mode!</p>
+					<p>Your screen will turn dark, but your phone will still be on and receptive to both voice commands and illustration.<p>
+					<p>You can exit blind mode by using a volume button.</p>
+					<p>Are you ready?</p>
+		    </div>
+		    <div class="modal-footer-dark">
+					<!-- onclick="$('body')[0].style.filter='brightness(0%)'" -->
+		      <button class="btn btn-dark mr-3" onclick="$('body')[0].style.filter='brightness(0%)'; document.getElementById('myModal2').style.display='none'">Yes</button>
+					<button class="btn btn-dark ml-3" onclick="document.getElementById('myModal2').style.display='none'">No</button>
+		    </div>
+		  </div>
+
+		</div>
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		$('#micon').hide();
+
+		$(document).keydown(function (e) {
+			if (e.which==122 || e.which==123) {
+				$('body')[0].style.filter='brightness(100%)';
+			}
+		})
+	</script>
+	<!-- Download PNG -->
+	<script type="text/javascript">
+		// https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image
+		function download(){
+      var download = document.getElementById("download");
+      var image = document.getElementById("myCanvas").toDataURL("image/png")
+                  .replace("image/png", "image/octet-stream");
+      download.setAttribute("href", image);
+
+  	}
+	</script>
+
+	<!-- color modal -->
+	<script type="text/javascript">
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("paletteBtn");
+
+		// Get the <span> element that closes the modal
+		// var span = document.getElementById("paletteClose");
+
+		// When the user clicks the button, open the modal
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		// span.onclick = function() {
+		//   modal.style.display = "none";
+		// }
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+	</script>
+
+	<!-- blind modal -->
+	<script type="text/javascript">
+		var modal2 = document.getElementById("myModal2");
+
+		// Get the button that opens the modal
+		var btn2 = document.getElementById("blind-btn");
+
+		// Get the <span> element that closes the modal
+		// var span = document.getElementById("paletteClose");
+
+		// When the user clicks the button, open the modal
+		btn2.onclick = function() {
+			modal2.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		// span.onclick = function() {
+		//   modal.style.display = "none";
+		// }
+	</script>
+</body>
+</html>

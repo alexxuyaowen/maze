@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Settings</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/coloring/vendors/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/coloring/css/main.css' %}" />
+
+  <script src="{% static 'coloring/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    .container-fluid {
+      animation-name: slideleft;
+      animation-duration: 0.4s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class = "row">
+      <h1 style="width:70vw;padding:2.5vmax"> Daredevil </h1>
+      <a href="{% url 'homepage' %}" style="width:30vw;font-size:7vmax;color:black;padding:1.25vmax">
+        <div> ⌦ </div>
+      </a>
+    </div>
+
+
+    <h4> Blind Mode </h4>
+    <p> The screen will turn dark, but the phone will still be on and
+      receptive to both voice commands and manual illustration.<br>
+      Press a volume button to exit blind mode. </p>
+
+    <br>
+    <h4> Noise Cancellation </h4>
+    <p> For the best experience of blind drawing with Daredevil,
+      we recommend wearing headphones while drawing.<br>
+      It's also strongly recommended to keep noise cancellation on at all times. </p>
+
+    <br>
+    <a href="#">
+      <p> More </p>
+    </a>
+
+  </div>
+</body>
+
+</html>

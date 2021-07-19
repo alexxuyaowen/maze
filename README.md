@@ -15,7 +15,7 @@ How to run: Download the file and run `python3 morse.py` on Terminal; enter '#' 
 
 # Daredevil
 
-An interactive prototype of a coloring app for iPhone SE.
+A coloring app's interactive prototype for iPhone SE.
 
 How to run: 
 1. Download the files

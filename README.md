@@ -17,7 +17,7 @@ How to run: Download the file and run `python3 morse.py` on Terminal; enter '#' 
 
 An interactive prototype of coloring app for iPhone SE, with an unique Blind Mode.
 
-[Click to view Figma Prototype](https://www.figma.com/proto/HTmAqjZKyBDuiequ8eb1gB/CS160_3_Figma?node-id=104%3A85&scaling=scale-down&page-id=3%3A10&starting-point-node-id=104%3A85)
+[Click to view Figma Prototype](https://www.figma.com/proto/HTmAqjZKyBDuiequ8eb1gB/CS160_3_Figma?node-id=104%3A85&scaling=scale-down&page-id=3%3A10&starting-point-node-id=104%3A85) <br>
 [Click to view Figma File](https://www.figma.com/file/HTmAqjZKyBDuiequ8eb1gB/CS160_3_Figma?node-id=3%3A10)
 
 How to run: 

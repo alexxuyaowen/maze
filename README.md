@@ -1,9 +1,4 @@
-# poker.py
-A program that simulates Texas Hold'em and computes related probabilities.
-
-How to run: Download the file and run `python3 poker.py` on Terminal
-
-<br>
+# Maze
 
 
 # morse.py
@@ -14,18 +9,3 @@ How to run:
 2. Enter text/codes; '#' to exit; "#p" to go to practice mode.
 
 <br>
-
-# Daredevil
-
-An interactive prototype of coloring app for iPhone SE, with an unique Blind Mode.
-
-[Click to view Figma Prototype](https://www.figma.com/proto/HTmAqjZKyBDuiequ8eb1gB/CS160_3_Figma?node-id=104%3A85&scaling=scale-down&page-id=3%3A10&starting-point-node-id=104%3A85) <br>
-[Click to view Figma File](https://www.figma.com/file/HTmAqjZKyBDuiequ8eb1gB/CS160_3_Figma?node-id=3%3A10)
-
-How to run: 
-1. Download the files
-2. Go to the directory that contains manage.py on Terminal
-3. Run `python3 manage.py runserver 0.0.0.0:8000`
-4. Open Safari/Chrome, find the developer tools, change the window size to iPhone SE (320x568)
-5. Go to `localhost:8000/coloring/`
-* Django may be required

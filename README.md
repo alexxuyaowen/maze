@@ -50,17 +50,17 @@
 
 ![damage](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/d1.PNG)
 
-##### Teleport to a random place
+#### Teleport to a random place
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t0.PNG)
-*Press ":" then "t" or simply mouse-click the yellow-colored "(T)eleport"*
+*Press ":" then "t" or mouse-click the yellow-colored "(T)eleport"*
 - The use of this ability would cost 10 health.
 - A special sound would be played upon the success of casting this ability.
 
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)
 
-##### Summon a lightning
+#### Summon a lightning
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t0.PNG)
-*Press ":" then "t" or simply mouse-click the yellow-colored "(T)eleport"*
+*Press ":" then "t" or mouse-click the yellow-colored "(T)eleport"*
 - The use of this ability would cost 10 health and 1 vision.
 
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)

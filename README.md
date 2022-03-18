@@ -19,6 +19,7 @@
 ![vision](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/vision.PNG)
 - Collecting a vision (the sun symbol) would increment the player's vision by 1, allowing the character to see more.
 - A special sound would be played upon the success of collecting a Vision.
+- Collecting a certain amount of visions would also change the appearance of the character, such as its color and trace.
 
 ### Trigger a Lightning:
 ![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l0.PNG)
@@ -33,7 +34,7 @@
 - Stepping on a portal would immediately transfer the character to another portal.
 - All portals except the one being stepped upon have a chance to be the destination.
 - There would be 3 to 6 portals randomly placed in the maze at the start of each game.
-- The minimum distance between any two portals is 100.
+- The minimum distance between any two portals is 10.
 - A special sound would be played upon the success of teleportation.
 
 ### Special Abilities:
@@ -57,6 +58,17 @@
 *Press ":" then "t" or simply mouse-click the yellow-colored "(T)eleport"*
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)
 - The use of this ability would cost 10 health and 1 vision.
+
+### Next Level:
+![the door](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/final.PNG)
+- Upon collect enough visions, a door would appear on the maze, and the player can view the entire maze from now on.
+- Getting to the door would take the player to the next level, resetting the vision and gaining 64 health.
+![next level](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/nextLevel.PNG)
+
+### Game Over
+![game over](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/fail0.PNG)
+- If the player cannot make to the next level before Health reaches 0, the game would end and a score would be displayed.
+![game over](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/fail1.PNG)
 
 
 

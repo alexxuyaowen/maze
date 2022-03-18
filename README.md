@@ -81,9 +81,9 @@
 ![game over](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/fail1.PNG)
 
 ### Other Features:
-- Mouse-click on an accessible place would take the character to there along the shortest path (A* Search).
 - The white text on the upper left corner indicates what the mouse is hovering over.
   - For example, if the mouse is hovering over the avatar, the text would be "player"; hovering over the wall, it would be "wall"; hovering over the trace that the avatar left behind, it would be "trace"; hovering over an accessible, untouched place, it would be "floor"; hovering over an inaccessible place or a place beyond the vision range, it would be "nothing".
+- Mouse-click on an accessible place would take the character to there along the shortest path (A* Search).
 - Press ":" then "q" to quickly save and exit the game.
 - Press ":" then "s" to save the game without leaving the game.
 - Press ":" then "n" to go the main menu (without saving).

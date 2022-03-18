@@ -61,8 +61,8 @@
 
 ### Next Level:
 ![the door](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/final.PNG)
-- Upon collect enough visions, a door would appear on the maze, and the player can view the entire maze from now on.
-- Getting to the door would take the player to the next level: reset the character, gain 64 health, and be put a different maze.
+- Upon collecting enough visions, a door would appear on the maze, and the player can view the entire maze from now on.
+- Getting to the door would take the player to the next level: reset the character, gain 64 health, and be put in a different maze.
 
 ![next level](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/nextLevel.PNG)
 

@@ -20,7 +20,7 @@
 ![vision](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/vision.PNG)
 - Collecting a Vision (the sun symbol) would increment the player's vision by 1, allowing the character to see more.
 - Collecting a certain amount of visions would change the appearance of the character, such as its color and trace.
-- A special sound would be played upon the success of collecting a Vision.
+- A special sound would be played upon a successful collection of a Vision.
 
 ### Trigger a Lightning:
 ![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l0.PNG)

@@ -36,7 +36,7 @@
 - All portals except the one being stepped upon have a chance to be the destination.
 - There would be 3 to 6 portals randomly placed in the maze at the start of each game.
 - The minimum distance between any two portals is 10.
-- A special sound would be played upon the success of teleportation.
+- A special sound would be played upon a successful teleportation.
 
 ![portal](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/portal1.PNG)
 

@@ -14,7 +14,7 @@
 
 ### The Start:
 ![start](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/start.PNG)
-- At the start of a game, the player has a health of 256, vision of 2, obscured vision of 1.
+- At the start of a game, the player has a health of 256, vision of 2, obscured vision of 1, and is in the default White appearance.
 - The degree of obscured vision equals to half of the degree of normal vision.
 
 ### Collect Visions:

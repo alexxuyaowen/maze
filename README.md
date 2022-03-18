@@ -39,6 +39,7 @@
 - A special sound would be played upon a successful teleportation.
 
 ![portal](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/portal1.PNG)
+*Fullscreen mode is enabled for demostration purposes.*
 
 ### Special Abilities:
 ##### Damage the surrounding walls
@@ -85,5 +86,5 @@
 - Press ":" then "q" to quickly save and exit the game.
 - Press ":" then "s" to save the game without leaving the game.
 - Press ":" then "n" to go the main menu (without saving).
-- Press ":" then "f" to turn on/off fullscreen (see the entire maze at no cost); this option is for the developers and not the players.
+- Press ":" then "f" to enter/exit fullscreen mode (see the entire maze at no cost); this option is for the developers and not the players.
 - Press "f" then "r/y/w/g/b" to manually change the appearance of the character to be "red/yellow/white/green/blue"; this option is just for fun.

@@ -2,8 +2,8 @@
 
 ### Main Menu:
 ![Main Menu](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/main.PNG)
-- Press 'n' to start playing a new game, 'r' to replay a saved game, 'l' to load a saved game without replaying, 's' to go to the settings, 'q' to exit.
-- 
+- Press 'n' to start playing a new game, 'r' to replay a saved game, 'l' to load a saved game, 's' to go to the settings, 'q' to exit.
+- Mouse operations supported.
 
 ### Enter Seed:
 ![seed](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/seed.PNG)
@@ -74,8 +74,9 @@
 
 ![game over](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/fail1.PNG)
 
-
-
+### Other Features:
+- The white text on the upper left corner indicates what the mouse if hovering at.
+  - s??
 
 
 

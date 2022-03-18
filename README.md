@@ -24,19 +24,21 @@
 
 ### Trigger a Lightning:
 ![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l0.PNG)
-![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l1.PNG)
 - Triggering a lightning would enable the player to temporarily view the entire maze.
 - A lightning would appear on a random place in the maze after every 5 collections of Vision.
 - A special sound would be played upon the success of triggering a lightning.
 
+![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l1.PNG)
+
 ### Use a Portal:
 ![portal](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/portal0.PNG)
-![portal](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/portal1.PNG)
 - Stepping on a portal would immediately transfer the character to another portal.
 - All portals except the one being stepped upon have a chance to be the destination.
 - There would be 3 to 6 portals randomly placed in the maze at the start of each game.
 - The minimum distance between any two portals is 10.
 - A special sound would be played upon the success of teleportation.
+
+![portal](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/portal1.PNG)
 
 ### Special Abilities:
 ##### Damage the surrounding walls

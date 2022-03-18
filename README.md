@@ -45,7 +45,7 @@
 ![damage](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/d0.PNG)
 *Press ":" then "d" or mouse-click the yellow-colored "(D)amage"*
 - The use of this ability would cost 16 health.
-- If there is no wall around the player, the operation would be ignored.
+- If there are no walls around the character, such an operation would be ignored.
 - A special sound would be played upon the success of casting this ability.
 
 ![damage](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/d1.PNG)
@@ -60,7 +60,7 @@
 
 #### Summon a lightning
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t0.PNG)
-- The use of this ability would cost 10 health and 1 vision.
+- Produce the same effects of triggering a lightning, except that it would cost 8 health and 1 vision.
 
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)
 

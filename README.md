@@ -59,10 +59,10 @@
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)
 
 #### Summon a lightning
-![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t0.PNG)
+
 - Produce the same effects of triggering a lightning, except that it would cost 8 health and 1 vision.
 
-![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/t1.PNG)
+
 
 ### Next Level:
 ![the door](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/final.PNG)

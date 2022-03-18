@@ -65,8 +65,6 @@
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l3.PNG)
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l4.PNG)
 
-
-
 ### Next Level:
 ![the door](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/final.PNG)
 - Upon collecting enough visions, a door would appear on the maze, and the player can view the entire maze from now on.
@@ -83,14 +81,9 @@
 ### Other Features:
 - The white text on the upper left corner indicates what the mouse is hovering over.
   - For example, if the mouse is hovering over the avatar, the text would be "player"; hovering over the wall, it would be "wall"; hovering over a accessible place, it would be "floor"; hovering over an inaccessible place or a place beyond the vision range, it would be "nothing"
-- Mouse-click on an accessible place would take the character to there along the shortest path.
+- Mouse-click on an accessible place would take the character to there along the shortest path (A* Search)
 - Press ":" then "q" to quickly save and exit the game.
 - Press ":" then "s" to save the game without leaving the game.
 - Press ":" then "n" to go the main menu (without saving).
 - Press ":" then "f" to turn on/off fullscreen (see the entire maze at no cost); this option is for the developers and not the players.
 - Press "f" then "r/y/w/g/b" to manually change the appearance of the character to be "red/yellow/white/green/blue"; this option is just for fun.
-
-
-
-
-

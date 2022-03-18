@@ -21,7 +21,7 @@
 ![vision](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/vision.PNG)
 - Collecting a vision (the sun symbol) would increment the player's vision by 1, allowing the character to see more.
 - A special sound would be played upon the success of collecting a Vision.
-- Collecting a certain amount of visions would also change the appearance of the character, such as its color and trace.
+- Collecting a certain amount of visions would change the appearance of the character, such as its color and trace.
 
 ### Trigger a Lightning:
 ![lightning](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/l0.PNG)
@@ -75,8 +75,14 @@
 ![game over](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/fail1.PNG)
 
 ### Other Features:
-- The white text on the upper left corner indicates what the mouse if hovering at.
-  - s??
+- The white text on the upper left corner indicates what the mouse is hovering over.
+  - For example, if the mouse is hovering over the avatar, the text would be "player"; hovering over the wall, it would be "wall"; hovering over a accessible place, it would be "floor"; hovering over an inaccessible place or a place beyond the vision range, it would be "nothing"
+- Mouse-click on an accessible place would take the character to there along the shortest path.
+- Press ":" then "q" to quickly save and exit the game.
+- Press ":" then "s" to save the game without leaving the game.
+- Press ":" then "n" to go the main menu (without saving).
+- Press ":" then "f" to turn on/off fullscreen (see the entire maze at no cost); this option is for the developers and not the players.
+- Press "f" then "r/y/w/g/b" to manually change the appearance of the character to be "red/yellow/white/green/blue"; this option is just for fun.
 
 
 

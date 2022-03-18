@@ -2,6 +2,8 @@
 
 ### Main Menu:
 ![Main Menu](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/main.PNG)
+- Press 'n' to start playing a new game, 'r' to replay a saved game, 'l' to load a saved game without replaying, 's' to go to the settings, 'q' to exit.
+- 
 
 ### Enter Seed:
 ![seed](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/seed.PNG)

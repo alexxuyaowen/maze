@@ -51,7 +51,7 @@
 
 ![damage](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/d1.PNG)
 
-#### Teleport to a random place
+#### Teleport to a random place without using a portal
 ![teleport](https://github.com/alexxuyaowen/maze/blob/master/Maze/Demo/tp0.PNG)
 *Press ":" then "t" or mouse-click the yellow-colored "(T)eleport"*
 - The use of this ability would cost 10 health.
